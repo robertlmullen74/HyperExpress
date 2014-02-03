@@ -1,5 +1,5 @@
 /*
-    Copyright 2014, Strategic Gains, Inc.
+    Copyright 2012, Strategic Gains, Inc.
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -15,21 +15,19 @@
 */
 package com.strategicgains.hyperexpress.domain;
 
+import java.util.Collection;
+import java.util.List;
 
 /**
- * Resource defines an interface for a RESTful resource that contains a link to a URL.
+ * Interface defining a hypermedia-linkable object.
  * 
  * @author toddf
- * @since Jan 10, 2014
+ * @since Oct 19, 2012
  */
-public interface Resource
+public interface LinkableResource
 {
-	/**
-	 * Define a link relationship from the resource to a URL.
-	 * 
-	 * @param rel the name of the relationship.
-	 * @param linkDefinition an abstraction of a link as a LinkDefinition instance.
-	 */
-	public void linkTo(String rel, LinkDefinition linkDefinition);
-	
+	public List<LinkDefinition> getLinks();
+	public void setLinks(List<LinkDefinition> links);
+	public void addLink(LinkDefinition link);
+	public void addAllLinks(Collection<LinkDefinition> links);
 }

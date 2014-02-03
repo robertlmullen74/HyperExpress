@@ -34,11 +34,15 @@ public class LinkDefinition
 
 	public LinkDefinition(String rel, String href)
     {
-	    super();
 	    setRel(rel);
 	    setHref(href);
     }
 
+	public LinkDefinition(LinkDefinition that)
+	{
+		this(that.getRel(),that.getHref());
+	}
+	
 	public String getHref()
 	{
 		return get(HREF);
